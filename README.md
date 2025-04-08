@@ -84,7 +84,7 @@ Feel free to fork, modify, or make conditions more difficult.
 
 ##  Preview
 
-![preview-screenshot](  )
+![preview-screenshot]( ![alt text](print.png) )
 
 ---
 
