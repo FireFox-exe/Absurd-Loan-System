@@ -1,7 +1,7 @@
 from flask import Flask, request, render_template, make_response
 from datetime import datetime, timedelta
 import re
-
+import os
 import random
 
 app = Flask(__name__)
@@ -189,6 +189,7 @@ def check_income(income):
         return "Approved", "You can pay... with some dignity intact."
     return "Approved", " You probably have a yacht, but we're still not impressed."
 
+debug_mode = os.environ.get("FLASK_DEBUG", "False") == "True"
 
 if __name__ == "__main__":
     app.run(host='0.0.0.0', port=5000, debug=debug_mode)
