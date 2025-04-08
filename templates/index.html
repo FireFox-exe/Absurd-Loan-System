@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Loan Application Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='hidden.css') }}">
+    <link rel="icon" type="image/png" href="{{ url_for('static', filename='favicon.png') }}">
+    <script>
+        (function () {
+            const savedTheme = localStorage.getItem('theme') || 'light';
+            const link = document.createElement('link');
+            link.id = 'theme-style';
+            link.rel = 'stylesheet';
+            link.href = savedTheme === 'dark' ?
+                '{{ url_for("static", filename="hidden.css") }}' :
+                '{{ url_for("static", filename="light.css") }}';
+            document.head.appendChild(link);
+        })();
+    </script>
+    
+    <style>
+        .conditional-input {
+            display: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="tiny-btn" onclick="toggleTheme()">Switch Theme</button>
+
+<script>
+    function toggleTheme() {
+        const themeLink = document.getElementById('theme-style');
+        const currentTheme = themeLink.getAttribute('href');
+
+        if (currentTheme.includes('light.css')) {
+            themeLink.setAttribute('href', '{{ url_for("static", filename="hidden.css") }}');
+            localStorage.setItem('theme', 'dark');
+        } else {
+            themeLink.setAttribute('href', '{{ url_for("static", filename="light.css") }}');
+            localStorage.setItem('theme', 'light');
+        }
+    }
+
+</script>
+</script>
+
+    <!--Grumpy Random answer-->
+    {% if request.method == 'POST' and status and comment %}
+        <div class="result">
+            <h2>{{ status }}</h2>
+            <p>{{ comment }}</p>
+        </div>
+        {% endif %}
+
+
+    <h1 class="neon-absurd">Loan Application Form</h1>
+
+    <form method="POST">
+        <label  class="neon-absurd" for="age">Age:</label>
+        <input type="number" name="age" id="age" required><br><br>
+
+        <label  class="neon-absurd" for="monthly_income">Monthly Income:</label>
+        <input type="number" name="monthly_income" id="monthly_income" required><br><br>
+
+        <!-- Criminal Record Question -->
+        <label  class="neon-absurd" for="criminal_record">Have you been incarcerated?</label>
+        <select name="criminal_record" id="criminal_record" required onchange="toggleCriminalRecordInput()">
+            <option value="false">No</option>  <!-- approved --> 
+            <option value="true">Yes</option> 
+        </select><br><br>
+
+        <!-- Conditional Input for Release Date -->
+        <div class="neon-absurd" id="criminal_record_date" class="conditional-input">
+            <label for="release_date">Release Date (if applicable):</label>
+            <input type="date" name="release_date" id="release_date"><br><br>
+        </div>
+
+        <!-- Payment History Question -->
+        <label  class="neon-absurd" for="paid">Have you made the payment?</label>
+        <select name="paid" id="paid" required onchange="togglePaymentDateInput()">
+            <option value="yes">Yes</option> 
+            <option value="no">No</option>  <!-- loan denied -->
+        </select><br><br>
+
+        <!-- Conditional Input for Payment Date -->
+        <div  class="neon-absurd" id="payment_date_div" class="conditional-input">
+            <label for="payment_date">Payment Date (if applicable):</label>
+            <input type="date" name="payment_date" id="payment_date"><br><br>
+        </div>
+
+        <button type="submit">Submit</button>
+    </form>
+    
+    <script>
+        // it shows or hides the release date input based on the criminal record selection
+        function toggleCriminalRecordInput() {
+            const criminalRecord = document.getElementById('criminal_record').value;
+            const releaseDateInput = document.getElementById('criminal_record_date');
+            if (criminalRecord === 'true') {
+                releaseDateInput.style.display = 'block';
+            } else {
+                releaseDateInput.style.display = 'none';
+            }
+        }
+        // it shows or hides the payment date input based on the payment status selection
+        function togglePaymentDateInput() {
+            const paymentStatus = document.getElementById('paid').value;
+            const paymentDateInput = document.getElementById('payment_date_div');
+            if (paymentStatus === 'yes') {
+                paymentDateInput.style.display = 'block';
+            } else {
+                paymentDateInput.style.display = 'none';
+            }
+        }
+
+        // Initialize the form state on page load
+        window.onload = function() {
+            toggleCriminalRecordInput(); // if yes, show release date input
+            togglePaymentDateInput(); //if yes, show payment date input
+        };
+    </script>
+
+<!-- the "helper" -->
+<button class="tiny-btn" onclick="toggleHelper()" style="margin-left: 10px;">AI, help me lie (just a little)</button>
+<div id="helper-box" class="neon-absurd" style="display: none; margin-top: 20px; border: 2px dashed; padding: 10px; border-radius: 10px;">
+    <strong>Tip:</strong> <span id="helper-text"></span>
+</div>
+
+<script>
+    
+    const helperTips = [
+        "No income? Just put $3,000. The bank won't check. (Just kidding they totally will).",
+        "Got a criminal record? Deep breaths. Maybe today's your lucky day.",
+        "Low income? Remember: Elon Musk also started with zero... common sense.",
+        "Under 18? Use your grandma's age. She won't mind (we hope).",
+        "Criminal record? Just say you were 'misunderstood' by the law.",
+        "Payment history? Just say you 'forgot' to pay. It's like a free pass!",
+        "Release date? Just say 'soon'it's vague enough to work.",
+        "Earn less than $300 a month? Just say you're going through a tough time. (We're not judging. We just don't approve.)",
+        "Under 18? Don't worry, we won't tell your parents. Probably",
+        "Never paid a loan before? Perfect! You're a mystery. Banks love suspense.",
+        "If you're over 100, we need your vampire license number.",
+        "If you're a billionaire, go buy a spaceship. Don't borrow here.",
+        "If you're a time traveler, please don't mess with our interest rates.",
+        "If you're a robot, please provide your serial number.",
+        "If your income is lower than your phone battery, we might have an issue.",
+        "Got coins in your couch? Count them in.",
+        "We won't judge your past. That's the AI's job.",
+        "If you've been released this week... we *might* need a moment.",
+        "Did you pay your last loan? Enter the date no pressure (but lots of judgment).",
+        "We do not accept dates from the Jurassic era. Again.",
+        "Today is fine. Yesterday is okay. 2077? No.",
+        "Don't lie. Our algorithm reads vibes.",
+        "One wrong answer and the system becomes self-aware. Just saying.",
+    ];
+
+    function toggleHelper() {
+        const box = document.getElementById('helper-box');
+        const text = document.getElementById('helper-text');
+        const randomTip = helperTips[Math.floor(Math.random() * helperTips.length)];
+
+        box.style.display = box.style.display === 'none' ? 'block' : 'none';
+        text.textContent = randomTip;
+    }
+</script>
+</body>
+</html>

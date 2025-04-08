@@ -1,0 +1,123 @@
+body {
+    margin: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(to bottom right, #e3ac68, #f2ddc3);
+    color: #6f2e14;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 40px 20px;
+    min-height: 100vh;
+}
+
+h1 {
+    color: #ff0000;
+    margin-bottom: 30px;
+    text-shadow: 1px 1px 1px #00000050;
+}
+
+.neon-absurd {
+    color: #e19166;
+    font-weight: 500;
+    text-shadow:
+        0 0 5px #ffbc7e,
+        0 0 10px #ffbc7e,
+        0 0 20px #ffd9aa;
+}
+
+form {
+    background-color: #4b1509;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(90, 48, 3, 0.3);
+    width: 100%;
+    max-width: 500px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #ffd1a6;
+}
+
+input[type="number"],
+input[type="date"],
+select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #f0a066;
+    border-radius: 10px;
+    font-size: 1.5em;
+    font-weight: 600;
+    background-color: #cdaf73;
+    color: #5b2800;
+}
+
+button {
+    width: 100%;
+    padding: 15px 0;
+    background: linear-gradient(to right, #8e4709, #e19166);
+    color: #fff;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1em;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.05s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background: linear-gradient(to right, #e86b00, #f0dccf);
+    color: #4b1509;
+}
+
+button:active {
+    background: linear-gradient(to right, #ffbc7e, #f6bba6);
+    transform: scale(0.98);
+    color: #481212;
+}
+
+h2 {
+    margin-top: 30px;
+    color: #4b1509;
+    text-shadow: 1px 1px 1px #ffffffcc;
+    font-size: 1.5em;
+}
+
+p {
+    margin-top: 10px;
+
+}
+
+#helper-box {
+    color: #5c1010 !important;
+    font-size: 1.0em;
+    font-weight: 300;
+}
+
+.result {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: #793e04;
+    background-color: #f5f0e6;
+    padding: 15px 20px;
+    border-left: 7px solid #75330a;
+    border-radius: 7px;
+    margin-top: 15px;
+    text-shadow: 1px 1px 1px #ffffffcc;
+}
+
+.tiny-btn {
+    padding: 6px 8px;
+    font-size: 13px;
+    border-radius: 6px;
+    max-width: fit-content;
+    white-space: nowrap;
+    background-color: #ffe4c7;
+    color: #4b1509;
+    border: none;
+    cursor: pointer;
+}
