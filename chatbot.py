@@ -149,7 +149,24 @@ def check_payment_history(paid, payment_date):
 def check_criminal_record(has_record, release_date=None):
     if has_record and release_date:
 
-        #input validation
+        #inStarting Container
+
+ * Serving Flask app 'chatbot'
+
+ * Debug mode: on
+
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+
+ * Running on http://127.0.0.1:5000
+
+Press CTRL+C to quit
+
+ * Restarting with stat
+
+ * Debugger is active!
+
+ * Debugger PIN: 102-093-158
+put validation
         release_date = datetime.strptime(release_date, "%Y-%m-%d").date()
         years_since_release = (datetime.today().date() - release_date).days // 365
         if years_since_release < 5:
@@ -174,4 +191,4 @@ def check_income(income):
 
 
 if __name__ == "__main__":
-    app.run(debug=True)
+    app.run(host='0.0.0.0', port=5000, debug=debug_mode)
