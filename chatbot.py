@@ -95,9 +95,9 @@ def check_age(age):
     if 18 <= age <= 24:
         return "Pending", f" High risk, You're young and reckless, good luck!"
     elif 25 <= age <= 39:
-        return "Pending", f"{age} Old enough to know better, young enough to still mess it up."
+        return "Pending", f"{age} years... Old enough to know better, young enough to still mess it up."
     elif 40 <= age <= 50:
-        return "Approved", f"with {age} years old You've seen some things, you know the drill."
+        return "Approved", f"{age} years old, You've seen some things, you know the drill."
     elif age > 99: #fallback for trolls users.
         return "Pending", f"Wait.. . {age} years old? Are you Vampire.. .Look, if our security cameras can't see you, we don't lend to vampires. They're night owls, and our office closes at 5. Anyway: Denied!"
     elif age > 50:
