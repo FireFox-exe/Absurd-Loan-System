@@ -6,6 +6,13 @@ You give us your age, income, criminal record and payment history,
 and we give you either approval or a passive-aggressive life lesson.
 
 ---
+## How to Run:
+
+A web app that helps users check loan eligibility with absurd honesty.
+
+👉 [Enter the Absurd Loan Simulator ](absurd-loan-system-production.up.railway.app)
+
+---
 
 ##  Project Overview
 
@@ -28,34 +35,9 @@ Each input triggers a tailored response -— ranging from polite denial to digit
 
 ---
 
-## How to Run Locally
-
-1. Clone the repo:
-   ```bash
-   git clone https://github.com/FireFox-exe/loan-roast-system.git
-   ```
-2. Navigate into the project:
-   ```bash
-   cd loan-roast-system
-   ```
-3. Run the Flask server:
-   ```bash
-   python app.py
-   ```
-4. Open your browser and go to `http://127.0.0.1:5000`
-
----
-
 ##  Idea & Inspiration
 
-This project was 100% custom-built based on a concept by me (https://github.com/FireFox-exe), and implemented with a little help from ChatGPT’s twisted sense of humor(A.K.A The Comedian).  +
-6666
-66
-
-
-6
-3,,,3
-
+This project was 99% custom-built based on a concept by me (https://github.com/FireFox-exe), and implemented with a little help from ChatGPT’s twisted sense of humor(A.K.A The Comedian).
 
 No tutorials, no templates — just good old logic and creativity. *Find a bug? or any redundancy, feel free to let me know or change it personally.*
 
