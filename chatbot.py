@@ -163,9 +163,8 @@ def check_income(income):
         return "Approved", "You can pay... with some dignity intact."
     return "Approved", " You probably have a yacht, but we're still not impressed."
 
-
-import os
+debug_mode = os.environ.get("FLASK_DEBUG", "False") == "True"
 
 if __name__ == "__main__":
-    port = int(os.environ.get("PORT", 5000)) 
+    port = int(os.environ.get("PORT", 5000))
     app.run(host="0.0.0.0", port=port, debug=debug_mode)
